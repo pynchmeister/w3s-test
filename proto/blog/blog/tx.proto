@@ -1,0 +1,46 @@
+syntax = "proto3";
+package blog.blog;
+
+// this line is used by starport scaffolding # proto/tx/import
+
+option go_package = "blog/x/blog/types";
+
+// Msg defines the Msg service.
+service Msg {
+      rpc CreatePost(MsgCreatePost) returns (MsgCreatePostResponse);
+  rpc UploadFilecoin(MsgUploadFilecoin) returns (MsgUploadFilecoinResponse);
+  rpc UploadW3S(MsgUploadW3S) returns (MsgUploadW3SResponse);
+// this line is used by starport scaffolding # proto/tx/rpc
+}
+
+message MsgCreatePost {
+  string creator = 1;
+  string title = 2;
+  string body = 3;
+}
+
+message MsgCreatePostResponse {
+  uint64 id = 1;
+}
+
+message MsgUploadFilecoin {
+  string creator = 1;
+  string authToken = 2;
+  string content = 3;
+}
+
+message MsgUploadFilecoinResponse {
+  uint64 id = 1;
+}
+
+message MsgUploadW3S {
+  string creator = 1;
+  string title = 2;
+  string content = 3;
+}
+
+message MsgUploadW3SResponse {
+  uint64 id = 1;
+}
+
+// this line is used by starport scaffolding # proto/tx/message
